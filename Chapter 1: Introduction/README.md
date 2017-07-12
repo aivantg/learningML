@@ -16,26 +16,16 @@ In this case, square footage, number of bedrooms, and number of floors are our _
 
 The first step will be creating a _model_ that we think will be able to give us an accurate representation of the data. This simply means we want to create an equation where we can plug in our three parameters (square footage, # of bedrooms, and # of floors) and it will spit out the price of our house.
 
-The first and simplest model we're going to learn about is the linear model: **y = ax + by + cz**.
+The first and simplest model we're going to learn about is the linear model: **P = ax + by + cz + d**.
 
 Here:
-* y: Price
+* P: Price
 * x: Square Footage
 * y: # of Bedrooms
 * z: # of Floors
 
-What we want to find are the right a, b, and c that will give us a good estimate for the price of our house. The a, b, and c are called our _weights_ (or otherwise known as coefficients). We call them weights because they decide how much each parameter should factor in to the total housing price.
+What we want to find are the right a, b, c, and d that will give us a good estimate for the price of our house. If you remember anything from math class, this might involve looking at a large plot of the data and seeing which four values for a, b, c, and d make the graph line up perfectly. In Machine Learning, we let the computer figure out those values so we don't have to do the work!
 
-## Step 1: Initializing The Weights and Creating a Loss Function
+ The variables a, b, and c are called our _weights_ (otherwise known as coefficients). We call them weights because they decide how much each parameter should factor in to the total housing price. The variable d is our bias term that helps the model factor in things that don't depend on our parameters (like the fact that all houses will probably start at some base cost).
 
-The first thing we're going to do is **guess**. We're going to let the computer come up with three random numbers for a, b, and c, show it the 500 data points we have for the housing prices in 2004 and see what prices it comes up with. As you might expect, they'll probably be _very_ off, but it's a place to start. The best way to learn is to get your hands dirty so we're about to jump into some real TensorFlow code! But before we can do that, we need to talk about one more concept: the **_Loss Function_**.
-
-A loss function is simply a way for us to know how _off_ our model was. Let's say for the first house in our dataset, the price our model calculates is $4,000 and the actual price is $400,000. Clearly our model is currently pretty bad, but that's not important. We just want a good way to tell _how_ bad it was. It's simpler than you think: _$400,000 - $4,000 = $396,000_ We were off by $396,000.
-
-This seems like a perfectly good loss function! The only problem is that sometimes, our model might overestimate the housing price. It might think that the house was worth $1,000,000. So to avoid having to deal with negative numbers, we'll square the difference between the actual price and the predicted price.
-
-In Sum: Loss Function: **(Actual Price - Predicted Price)^2**
-
-Great! Now we have a model we're going to try and use to predict housing prices and a way to know how off our model is when we give it random weights. Let's get to the code!
-
-**Stop here and check out weights_and_loss.py. Follow the tutorial and come back here and keep reading when you finish!**
+ Now we're going to get our hands dirty with some of the code! Open up StepOne.md to get started.
